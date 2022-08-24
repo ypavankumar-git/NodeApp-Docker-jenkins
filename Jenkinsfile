@@ -16,7 +16,7 @@ pipeline{
         }
         stage('push image to dockerhub'){
             steps{
-                sh 'docker tag nodeApp:latest ypavankumar123/nodeapp:latest'
+                sh 'docker tag nodeapp:latest ypavankumar123/nodeapp:latest'
                 sh 'docker tag mysql:latest ypavankumar123/mysql:latest'
                 sh 'docker login -u $doc_creds_USR -p $doc_creds_PSW && sudo docker push ypavankumar123/nodeapp:latest && sudo docker push ypavankumar123/mysql:latest'
               }
