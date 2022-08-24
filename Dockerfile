@@ -1,6 +1,5 @@
-FROM node:7
+FROM node:alpine
 RUN mkdir -p /nodeApp
 WORKDIR /nodeApp
 COPY . /nodeApp
 RUN npm install
-CMD ["npm", "run", "start"]
