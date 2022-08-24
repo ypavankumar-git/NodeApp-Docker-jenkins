@@ -1,6 +1,5 @@
 pipeline{
-    //agent {label 'pavan-jenkins-hoster-instance'}
-    agent any
+    agent {label 'pavan-jenkins-hoster-instance'}
     tools{
         nodejs 'NodeJS'
     }
