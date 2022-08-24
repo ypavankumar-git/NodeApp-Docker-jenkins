@@ -3,5 +3,5 @@ RUN mkdir -p /nodeApp
 WORKDIR /nodeAp
 COPY . /nodeApp
 RUN npm install
-EXPOSE 3030
+EXPOSE 80
 CMD ["npm", "run", "start"]
