@@ -17,6 +17,7 @@ pipeline{
         }
         stage('push image to dockerhub'){
             steps{
+                sh 'sudo usermod -a -G docker jenkins'
                 sh 'docker tag nodeappimage:latest ypavankumar123/nodeapp-jenkins:nodeappimage'
                 sh 'docker push ypavankumar123/nodeapp-jenkins:nodeappimage'
             }
