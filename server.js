@@ -5,6 +5,6 @@ var app = express()
 app.get('/', function (req, res) {
   res.send('Hello Welcome to Automateinfra.com')
 })
-app.listen(8081, function () {
+app.listen(80, function () {
   console.log('app listening on port 8081!')
 })
