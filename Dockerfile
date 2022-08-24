@@ -1,6 +1,6 @@
 FROM node:7
 RUN mkdir -p /nodeApp
-WORKDIR /nodeAp
+WORKDIR /nodeApp
 COPY . /nodeApp
 RUN npm install
 EXPOSE 80
