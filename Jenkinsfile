@@ -11,13 +11,14 @@ pipeline{
     stages{
         stage('build image'){
             steps{
-                sh 'docker build -t nodeappimage .'
+                sh 'sh build.sh'
             }
         }
         stage('push image to dockerhub'){
             steps{
-                sh 'docker tag nodeappimage:latest ypavankumar123/nodeapp-jenkins:nodeappimage'
-                sh 'docker login -u $doc_creds_USR -p $doc_creds_PSW && sudo docker push ypavankumar123/nodeapp-jenkins:nodeappimage'
+                sh 'docker tag nodeApp:latest ypavankumar123/nodeApp:latest'
+                sh 'docker tag mysql:latest ypavankumar123/mysql:latest'
+                sh 'docker login -u $doc_creds_USR -p $doc_creds_PSW && sudo docker push ypavankumar123/nodeApp:latest && sudo docker push ypavankumar123/mysql:latest'
               }
             }
         }
