@@ -4,4 +4,4 @@ docker build . -t mysql
 
 #build node app image
 cd ../routes
-docker build . -t nodeApp
+docker build . -t nodeapp
