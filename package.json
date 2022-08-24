@@ -1,9 +1,6 @@
 {
     "dependencies": {
       "express": "~3.2.0"
-    },
-    "globalDependencies": {
-      "pm2" : "^5.2.0"
     }
   }
   
