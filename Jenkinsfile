@@ -8,8 +8,10 @@ pipeline{
     }
     stages{
         stage('build image'){
-            sh 'ls -a'
-            sh 'docker build -t nodeappimage .'
+            steps{
+                sh 'ls -a'
+                sh 'docker build -t nodeappimage .'
+            }
         }
     }
 }
