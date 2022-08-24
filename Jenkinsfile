@@ -16,8 +16,6 @@ pipeline{
             }
         }
     }
-
-    stages{
         stage('push image to dockerhub'){
             steps{
                 sh 'docker tag nodeappimage:latest ypavankumar123/nodeapp-jenkins:tagname'
@@ -25,5 +23,3 @@ pipeline{
             }
         }
     }
-
-}
