@@ -4,4 +4,4 @@ WORKDIR /nodeApp
 COPY . /nodeApp
 RUN npm install
 EXPOSE 8081
-CMD ["npm", "run", "start"]
+CMD ["pm2", "start", "server.js"]
