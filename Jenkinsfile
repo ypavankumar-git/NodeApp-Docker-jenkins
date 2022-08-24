@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent {label 'pavan-jenkins-hoster-instance'}
     tools{
         nodejs 'NodeJS'
     }
@@ -17,8 +17,8 @@ pipeline{
         }
         stage('push image to dockerhub'){
             steps{
-                sh 'docker tag nodeappimage:latest ypavankumar123/nodeapp-jenkins:tagname'
-                sh 'docker push ypavankumar123/nodeapp-jenkins:tagname'
+                sh 'docker tag nodeappimage:latest ypavankumar123/nodeapp-jenkins:nodeappimage'
+                sh 'docker push ypavankumar123/nodeapp-jenkins:nodeappimage'
             }
         }
     }
