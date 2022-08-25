@@ -5,7 +5,7 @@ pipeline{
     }
     environment{
         PATH = "/usr/local/bin:${env.PATH}"
-        docker_url = "https://hub.docker.com/"
+        docker_url = "https://hub.docker.com"
         docker_registry_nodeapp = "https://hub.docker.com/repository/docker/ypavankumar123/nodeapp"
         docker_registry_mysql = "https://hub.docker.com/repository/docker/ypavankumar123/mysql"
         docker_creds_id = "e9aefd7f-157a-4320-9717-a00a33701190"
