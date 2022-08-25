@@ -15,7 +15,7 @@ pipeline{
         stage('build image'){
             steps{
                 script{
-                    sh 'ls -a'
+                    sh 'cd routes'
                     nodeapp = docker.build docker_registry_nodeapp
                 }
               }
