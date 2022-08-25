@@ -13,9 +13,11 @@ pipeline{
     stages{
         stage('build image'){
             steps{
+                script{
                docker.withRegistry(docker_registry_nodeapp, docker_creds_id) {
                     docker.build('myapp').push('latest')
                 }
+              }
             }
         }
         stage('push image to dockerhub'){
