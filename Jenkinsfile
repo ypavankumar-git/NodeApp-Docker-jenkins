@@ -15,8 +15,8 @@ pipeline{
         stage('build image'){
             steps{
                 script{
-               docker.withRegistry(docker_url, docker_creds_id) {
-                    docker.build('myapp').push('latest')
+                    sh 'ls -a'
+                    nodeapp = docker.build
                 }
               }
             }
