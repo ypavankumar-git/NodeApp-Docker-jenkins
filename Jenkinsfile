@@ -5,14 +5,13 @@ pipeline{
     }
     environment{
         PATH = "/usr/local/bin:${env.PATH}"
-        docker_url = "https://registry.hub.docker.com"
         docker_registry_nodeapp = "ypavankumar123/nodeapp"
         docker_registry_mysql = "ypavankumar123/mysql"
         docker_creds_id = "e9aefd7f-157a-4320-9717-a00a33701190"
     }
 
     stages{
-        stage('build image'){
+        stage('Build image'){
             steps{
                 script{
                     nodeappImage = docker.build(docker_registry_nodeapp, "-f ./routes/Dockerfile .")
@@ -20,7 +19,7 @@ pipeline{
                 }
               }
             }
-        stage('push image to dockerhub'){
+        stage('Push Image'){
             steps{
                 script { 
                     docker.withRegistry('', docker_creds_id ) { 
