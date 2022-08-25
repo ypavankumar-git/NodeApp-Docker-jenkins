@@ -15,14 +15,19 @@ pipeline{
         stage('build image'){
             steps{
                 script{
-                    sh 'cd routes'
-                    sh 'ls -a'
-                    nodeapp = docker.build(docker_registry_nodeapp, "-f ./routes/Dockerfile .")
+                    nodeappImage = docker.build(docker_registry_nodeapp, "-f ./routes/Dockerfile .")
+                    mysqlImage = docker.build(docker_registry_mysql, "-f ./mysql/Dockerfile .")
                 }
               }
             }
         stage('push image to dockerhub'){
             steps{
+                script { 
+                    docker.withRegistry('', docker_creds_id ) { 
+                        nodeappImage.push() 
+                        mysqlImage.push()
+                    }
+                } 
                 sh 'docker tag nodeapp:latest ypavankumar123/nodeapp:latest'
                 sh 'docker tag mysql:latest ypavankumar123/mysql:latest'
                 sh 'docker login -u $doc_creds_USR -p $doc_creds_PSW && sudo docker push ypavankumar123/nodeapp:latest && sudo docker push ypavankumar123/mysql:latest'
