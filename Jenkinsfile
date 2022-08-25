@@ -20,7 +20,6 @@ pipeline{
                 }
               }
             }
-        }
         stage('push image to dockerhub'){
             steps{
                 sh 'docker tag nodeapp:latest ypavankumar123/nodeapp:latest'
