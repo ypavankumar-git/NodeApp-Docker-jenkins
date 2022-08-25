@@ -5,13 +5,17 @@ pipeline{
     }
     environment{
         PATH = "/usr/local/bin:${env.PATH}"
-        doc_creds = credentials("e9aefd7f-157a-4320-9717-a00a33701190")
+        docker_registry_nodeapp = "https://hub.docker.com/repository/docker/ypavankumar123/nodeapp"
+        docker_registry_mysql = "https://hub.docker.com/repository/docker/ypavankumar123/mysql"
+        docker_creds_id = "e9aefd7f-157a-4320-9717-a00a33701190"
     }
 
     stages{
         stage('build image'){
             steps{
-                sh 'sh build.sh'
+               docker.withRegistry(docker_registry_nodeapp, docker_creds_id) {
+                    docker.build('myapp').push('latest')
+                }
             }
         }
         stage('push image to dockerhub'){
