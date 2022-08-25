@@ -17,7 +17,7 @@ pipeline{
                 script{
                     sh 'cd routes'
                     sh 'ls -a'
-                    nodeapp = docker.build("docker_registry_nodeapp", "-f routes/Dockerfile")
+                    nodeapp = docker.build(docker_registry_nodeapp, "-f ./routes/Dockerfile .")
                 }
               }
             }
